@@ -8,14 +8,14 @@ body
 
 .login-box
 {
-	width: 700px;
+	width: 600px;
 	height: 400px;
-	box-shadow: 1px 2px 2px 2px rgb(0,0,0);
+	box-shadow: 1px 2px 2px 2px rgb(0,0,0, 0.5);
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	margin-top: -230px;
-    margin-left: -350px;
+    margin-left: -300px;
     border-radius: 7px;
 }
 
@@ -35,19 +35,21 @@ body
 .login-box .content form div
 {
 	text-align: right;
-	width: 500px;
-	margin-top: 20px;
+	width: 450px;
+	margin-top: 15px;
 }
 
 .login-box .content form div label
 {
 	position: relative;
 	left: 5px;
+	margin-right: 35px;
 }
 
 .login-box .content form input
 {
 	width: 250px;
+	height: 20px;
 }
 
 
@@ -56,14 +58,15 @@ body
 	margin-top: 10px;
 	width: 20px;
 	position: relative;
-	left: -55px;
+	left: -50px;
 }
 
 .login-box .content form span
 {
 	position: relative;
-	left: -55px;
+	left: -50px;
 	font-size: 15px;
+	top: -5px;
 }
 
 .login-box .content form label
@@ -80,11 +83,13 @@ body
 	border-radius: 30px;
 	width: 125px;
 	height: 50px;
-	padding: 0 10px;
 	transition: all 500ms ease-out;
+	background: blue;
+	color: white;
 }
 
 .login-box .content form button:hover
 {
-	background: blue;
+	background: white;
+	color: black;
 }
