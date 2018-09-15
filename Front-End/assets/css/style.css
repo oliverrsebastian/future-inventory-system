@@ -1,12 +1,29 @@
-body
+html,body
 {
-	margin: 0;
-	padding: 0;
 	height: 100%;
-	width: 100%;
 }
 
-.login-box
+body{
+	display: flex;
+	align-items: center;
+}
+
+.container-fluid{
+	height: 100%;
+	margin: 0 auto;
+}
+
+.login-box{ 
+	height: 80%;
+}
+
+
+
+
+
+
+
+/*.login-box
 {
 	width: 600px;
 	height: 400px;
@@ -92,4 +109,4 @@ body
 {
 	background: white;
 	color: black;
-}
+}*/
