@@ -1,0 +1,90 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.login-box
+{
+	width: 700px;
+	height: 400px;
+	box-shadow: 1px 2px 2px 2px rgb(0,0,0);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -230px;
+    margin-left: -350px;
+    border-radius: 7px;
+}
+
+.login-box .logo
+{
+	width: 100%;
+	height: 125px;
+	background: lightblue;
+}
+
+.login-box .content
+{
+	text-align: center;
+}
+
+
+.login-box .content form div
+{
+	text-align: right;
+	width: 500px;
+	margin-top: 20px;
+}
+
+.login-box .content form div label
+{
+	position: relative;
+	left: 5px;
+}
+
+.login-box .content form input
+{
+	width: 250px;
+}
+
+
+.login-box .content form input[type=checkbox]
+{
+	margin-top: 10px;
+	width: 20px;
+	position: relative;
+	left: -55px;
+}
+
+.login-box .content form span
+{
+	position: relative;
+	left: -55px;
+	font-size: 15px;
+}
+
+.login-box .content form label
+{
+	margin-right: 10px;
+	width: 70px;
+	height: 20px;
+}
+
+.login-box .content form button
+{
+	margin: 25px auto;
+	display: block;
+	border-radius: 30px;
+	width: 125px;
+	height: 50px;
+	padding: 0 10px;
+	transition: all 500ms ease-out;
+}
+
+.login-box .content form button:hover
+{
+	background: blue;
+}

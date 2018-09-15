@@ -1,0 +1,401 @@
+API Name : login
+API Description : login to system
+API Path : /api/login
+Request Method : POST 
+Request Body :
+{
+	email : "karnando@gmail.com",
+	password: "bebas"
+}
+Response :
+{
+	"success" : true
+}
+
+-------------------------------------------
+
+API Name : getEmployeeById
+API Description : Get employee by Id
+API Path : /api/employee/{id}
+Request Method : GET
+
+Response :
+{
+	name: "Karnando",
+	superiorId : 2,
+	dob : "17 July 1998"
+	email : "karnando@gmail.com",
+	position : "development",
+	division : "IT Division",
+	request : minimal 0 value angka : 1,
+	approval : minimal 0 value angka : 2,
+	handover : minimal 0 value angka : 5
+}
+
+-------------------------------------------
+
+API Name : getEmployeeList
+API Description : Get employee list
+API Path : /api/employee
+Request Method : GET
+
+Response :
+	list : 
+		{
+			name: "Karnando",
+			superiorId : 2,
+			dob : "17 July 1998",
+			email : "karnando@gmail.com",
+			position : "development",
+			division : "IT Division",
+			request : minimal 0 value angka : 1,
+			approval : minimal 0 value angka : 2,
+			handover : minimal 0 value angka : 5
+		},
+		{
+			name: "Oliver",
+			superiorId : 1,
+			dob : "17 August 1998",
+			email : "oliver@gmail.com",
+			position : "development",
+			division : "IT Division",
+			request : minimal 0 value angka : 3,
+			approval : minimal 0 value angka : 1,
+			handover : minimal 0 value angka : 2
+		}
+
+-------------------------------------------
+
+API Name : entryEmployee
+API Description : add new employee
+API Path : /api/employee/insert
+Request Method : POST
+Request Body :
+{
+	name: "Karnando",
+	superiorId : 3,
+	dob : "17 July 1998"
+	email : "karnando@gmail.com",
+	position : "development",
+	division : "IT Division",
+	request : minimal 0 value angka : 1,
+	approval : minimal 0 value angka : 2,
+	handover : minimal 0 value angka : 5
+}
+Response :
+{
+	success : "true"
+}
+
+-------------------------------------------
+
+API Name : editEmployeeById
+API Description : edit employee By Id
+API Path : /api/employee/{id}
+Request Method : PUT
+Request Body :
+{
+	name: "Karnando",
+	superiorId : 3,
+	dob : "17 July 1997"
+	email : "karnando@gmail.com",
+	position : "development",
+	division : "IT Division",
+	request : minimal 0 value angka : 1,
+	approval : minimal 0 value angka : 2,
+	handover : minimal 0 value angka : 5
+}
+Response :
+{
+	success : "true"
+}
+
+-------------------------------------------
+
+API Name : deleteEmployeeById
+API Description : edit employee By Id
+API Path : /api/employee/{id}
+Request Method : DELETE
+Response :
+{
+	success : "true"
+}
+
+-------------------------------------------
+
+API Name : getItemList
+API Description : get Item List
+API Path : /api/item
+Request Method : GET
+Response :
+{
+	list : 	
+			{
+				id: 2,
+				sku : "BLK-2001523-15643",
+				name: "Macbook Pro"
+				qty : 5,
+				price : 33000000,
+				location : Thamrin Office
+			},
+			{
+				id: 3,
+				sku : "ALP-2001523-15643",
+				name: "Macbook Air"
+				qty : 3,
+				price : 24000000,
+				location : Thamrin Office
+			},
+			{
+				id: 4,
+				sku : "ERG-2001523-15643",
+				name: "Pocophone F1"
+				qty : 2,
+				price : 5000000,
+				location : Thamrin Office
+			},
+
+}
+
+-------------------------------------------
+
+API Name : entryItem
+API Description : input Item to databse
+API Path : /api/item/insert
+Request Method : POST
+Request Body :
+{
+	sku : "BLK-2001523-15643",			
+	name : "Macbook Pro"
+	qty : 2
+	price : 33000000 
+	location : Thamrin Office
+}
+Response :
+{
+	"success" : true
+}
+
+-------------------------------------------
+
+API Name : editItemById
+API Description : edit item By Id
+API Path : /api/item/{id}
+Request Method : PUT
+Request Body :
+{
+	sku : "BLK-2001523-15643",			
+	name : "Macbook Pro Air",
+	qty : 1,
+	price : 33000000, 
+	location : "Thamrin Office"
+}
+Response :
+{
+	success : "true"
+}
+
+-------------------------------------------
+
+API Name : deleteItemById
+API Description : edit item By Id
+API Path : /api/item/{id}
+Request Method : DELETE
+Response :
+{
+	success : "true"
+}
+
+-------------------------------------------
+
+API Name : requestItem
+API Description : request Item
+API Path : /api/request/insert
+Request Method : POST
+Request Body :
+{
+	employeeId : 2,
+	item :
+		{
+			id : 2,
+			qty : 5
+		},
+		{
+			id : 3,
+			qty : 1
+		},
+	status : "pending",
+	createdDate : "5 July 2018",
+	updatedDate : "5 July 2018"
+}
+Response :
+{
+	success : "true"
+}
+
+-------------------------------------------
+
+API Name : requestList
+API Description : get list of request(s)
+API Path : /api/request
+Request Method : GET
+Response :
+	list : 
+	{
+		id : 1,
+		employeeId : 2,
+		item :
+			{
+				id : 2,
+				qty : 5
+			},
+			{
+				id : 3,
+				qty : 1
+			},
+		status : "pending",
+		createdDate : "5 July 2018",
+		updatedDate : "5 July 2018",
+		notes : null
+	},
+	{
+		id : 2,
+		employeeId : 4,
+		item :
+			{
+				id : 1,
+				qty : 2
+			},
+			{
+				id : 4,
+				qty : 3
+			},
+		status : "rejected",
+		createdDate : "7 July 2018",
+		updatedDate : "7 July 2018",
+		notes : "barang ga bisa di pinjam"
+	}
+
+-------------------------------------------
+
+API Name : AuthorizeRequestById
+API Description : authorize request from employee by id
+API Path : /api/request/{id}/authorize
+Request Method : POST
+Request Body :
+{
+	id : 1,
+	employeeId : 2,
+	status : "rejected",
+	updatedDate : "8 July 2018",
+	notes : "barang tidak ada"
+}
+Response :
+{
+	success : "true"
+}
+
+-------------------------------------------
+
+API Name : ConfirmHandoverById
+API Description : confirm handover from employee by id
+API Path : /api/request/{id}/confirm
+Request Method : POST
+Request Body :
+{
+	id : 1,
+	employeeId : 2,
+	status : "received",
+	updatedDate : "9 July 2018",
+	notes : null
+}
+Response :
+{
+	success : "true"
+}
+
+-------------------------------------------
+
+CORET2
+----------------------
+-dashboard
+	data GET: 
+	{
+		id: 2,
+		name: "Karnando",
+		dob : "17 July 1998"
+		email : "karnando@gmail.com",
+		position : "development",
+		division : "IT Division",
+		request : minimal 0 value angka : 1,
+		approval : minimal 0 value angka : 2,
+		handover : minimal 0 value angka : 5
+	}
+
+-item list
+	-data GET: 
+	{
+	user : 	
+		{
+			id: 2,
+			name: "Karnando",
+			dob : "17 July 1998"
+			email : "karnando@gmail.com",
+			position : "development",
+			division : "IT Division",
+			request : minimal 0 value angka : 1,
+			approval : minimal 0 value angka : 2,
+			handover : minimal 0 value angka : 5
+		},
+	item :	
+		{
+			list : 	
+			{
+				id: 2,
+				sku : "BLK-2001523-15643",
+				name: "Macbook Pro"
+				qty : 5,
+				price : 33000000,
+				location : Thamrin Office
+			},
+			{
+				id: 3,
+				sku : "ALP-2001523-15643",
+				name: "Macbook Air"
+				qty : 3,
+				price : 24000000,
+				location : Thamrin Office
+			},
+			{
+				id: 4,
+				sku : "ERG-2001523-15643",
+				name: "Pocophone F1"
+				qty : 2,
+				price : 5000000,
+				location : Thamrin Office
+			},
+			}
+		}
+		
+	- data POST (borrow item) :
+		item :
+		{
+			id : 2
+		},
+		{
+			id : 3
+		}
+
+	
+- entry item
+	-data POST  : 
+	{
+		item :
+		{
+			sku : "BLK-2001523-15643",
+			name : "Macbook Pro"
+			qty : 2
+			price : 33000000 
+			location : Thamrin Office
+		}
+	}
