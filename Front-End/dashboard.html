@@ -19,21 +19,23 @@
 	<meta name="theme-color" content="#ffffff">
 </head>
 <body>
+	<div id="progress" class="waiting">
+	</div>
 	<div class="container-fluid p-0 m-0">
-		<div class="row" id="page-row">
+		<div class="row hide" id="page-row">
 			<div class="left-navbar col-sm-2 col-md-3 col-lg-3 col-xl-2 p-0 shadow">
 				<nav class="navbar navbar-dark bg-dark flex-row flex-nowrap align-items-start navbar-expand-sm pl-4 pr-1" id="left-nav">
 			  		<nav class="nav flex-column nav-pills nav-fill nav-justified col-12 text-right" aria-orientation="vertical">
 						<a class="navbar-brand pl-1 pb-5 pt-3" href="dashboard.html">
 			    				<img src="assets/images/logo.png" width="200" alt="">
 			  			</a>
-						<a class="nav-link active shadow font-weight-light" href="dashboard.html"><i class="fas fa-desktop"></i> Dashboard</a>
-						<a class="nav-link text-white font-weight-light" href="items.html"><i class="fas fa-archive"></i> Items</a>
-						<a class="nav-link text-white font-weight-light" href="my-items.html"><i class="fas fa-box-open"></i> My Items</a>
-						<a class="nav-link text-white font-weight-light" href="employees.html"><i class="fas fa-user-friends"></i> Employees</a>
-						<a class="nav-link text-white font-weight-light" href="item-requests.html"><i class="fas fa-list-ul"></i> Item Requests</a>
-						<a class="nav-link text-white font-weight-light" href="handovers.html"><i class="fas fa-people-carry"></i> Handovers</a>
-						<a class="nav-link text-white font-weight-light" href="assignment-list.html"><i class="fas fa-tasks"></i> Assignment List</a>
+						<a class="nav-link active shadow font-weight-light" id="dashboard"><i class="fas fa-desktop"></i> Dashboard</a>
+						<a class="nav-link text-white font-weight-light" id="items"><i class="fas fa-archive"></i> Items</a>
+						<a class="nav-link text-white font-weight-light" id="myItems"><i class="fas fa-box-open"></i> My Items</a>
+						<a class="nav-link text-white font-weight-light" id="employees"><i class="fas fa-user-friends"></i> Employees</a>
+						<a class="nav-link text-white font-weight-light" id="requests"><i class="fas fa-list-ul"></i> Item Requests</a>
+						<a class="nav-link text-white font-weight-light" id="handovers"><i class="fas fa-people-carry"></i> Handovers</a>
+						<a class="nav-link text-white font-weight-light" id="assignments"><i class="fas fa-tasks"></i> Assignment List</a>
 					</nav>
 				</nav>		
 			</div>
@@ -57,5 +59,6 @@
 
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/loading.js"></script>
 </body>
 </html>
