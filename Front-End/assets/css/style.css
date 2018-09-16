@@ -39,6 +39,11 @@ body{
 	height: 100%;
 }
 
+#page-row{
+	width: 100%;
+	margin:0;
+}
+
 @keyframes failedLogin
 {
 	0%
@@ -111,6 +116,9 @@ div.waiting.done
 	color: #17a2b8;
 }
 
+.navbar-brand:hover{
+	box-shadow: 5px;
+}
 
 
 
