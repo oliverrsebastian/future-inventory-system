@@ -21,21 +21,21 @@
 <body>
 	<div id="progress" class="waiting">
 	</div>
-	<div class="container-fluid p-0 m-0">
+	<div class="container-fluid m-0 p-0">
 		<div class="row hide" id="page-row">
 			<div class="left-navbar col-sm-2 col-md-3 col-lg-3 col-xl-2 p-0 shadow">
 				<nav class="navbar navbar-dark bg-dark flex-row flex-nowrap align-items-start navbar-expand-sm pl-4 pr-1" id="left-nav">
 			  		<nav class="nav flex-column nav-pills nav-fill nav-justified col-12 text-right" aria-orientation="vertical">
 						<a class="navbar-brand pl-1 pb-5 pt-3" href="dashboard.html">
-			    				<img src="assets/images/logo.png" width="200" alt="">
+			    				<img src="assets/images/logo.png" width="175" alt="">
 			  			</a>
-						<a class="nav-link active shadow font-weight-light" id="dashboard"><i class="fas fa-desktop"></i> Dashboard</a>
-						<a class="nav-link text-white font-weight-light" id="items"><i class="fas fa-archive"></i> Items</a>
-						<a class="nav-link text-white font-weight-light" id="myItems"><i class="fas fa-box-open"></i> My Items</a>
-						<a class="nav-link text-white font-weight-light" id="employees"><i class="fas fa-user-friends"></i> Employees</a>
-						<a class="nav-link text-white font-weight-light" id="requests"><i class="fas fa-list-ul"></i> Item Requests</a>
-						<a class="nav-link text-white font-weight-light" id="handovers"><i class="fas fa-people-carry"></i> Handovers</a>
-						<a class="nav-link text-white font-weight-light" id="assignments"><i class="fas fa-tasks"></i> Assignment List</a>
+						<a class="nav-link active text-light shadow font-weight-light" id="dashboard"><i class="fas fa-desktop"></i> Dashboard</a>
+						<a class="nav-link text-light font-weight-light" id="items"><i class="fas fa-archive"></i> Items</a>
+						<a class="nav-link text-light font-weight-light" id="my-items"><i class="fas fa-box-open"></i> My Items</a>
+						<a class="nav-link text-light font-weight-light" id="employees"><i class="fas fa-user-friends"></i> Employees</a>
+						<a class="nav-link text-light font-weight-light" id="item-requests"><i class="fas fa-list-ul"></i> Item Requests</a>
+						<a class="nav-link text-light font-weight-light" id="handovers"><i class="fas fa-people-carry"></i> Handovers</a>
+						<a class="nav-link text-light font-weight-light" id="assignment-list"><i class="fas fa-tasks"></i> Assignment List</a>
 					</nav>
 				</nav>		
 			</div>
@@ -43,7 +43,7 @@
 				<nav class="navbar navbar-light bg-light justify-content-end">
 					<ul class="nav pr-4">
 						<li class="nav-item dropdown">
-						    <a class="nav-link text-secondary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hello, Admin <i class="fas fa-user-circle"></i></a>
+						    <a class="nav-link text-secondary" data-toggle="dropdown" id="#" role="button" aria-haspopup="true" aria-expanded="false">Hello, Admin <i class="fas fa-user-circle"></i></a>
 						    <div class="dropdown-menu dropdown-menu-right text-center">
 						      <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Change Password</a>
 						      <div class="dropdown-divider"></div>
@@ -52,6 +52,36 @@
 						</li>
 					</ul>
 				</nav>
+
+				<div class="p-4">
+					<h3 class="text-dark">Dashboard</h3>
+					<div class="row pt-1">
+						<div class="col-auto">
+							<div class="card text-white bg-primary mb-3 text-right shadow border-0" style="max-width: 18rem; min-width: 14rem; max-height: 10rem">
+								<div class="card-body">
+									<h5 class="card-title font-weight-normal">Pending Requests</h5>
+									<h1 class="display-3 card-text">25</h1>
+								</div>
+							</div>
+						</div>
+						<div class="col-auto">
+							<div class="card text-white bg-primary mb-3 text-right shadow border-0" style="max-width: 18rem; min-width: 14rem; max-height: 10rem">
+								<div class="card-body">
+									<h5 class="card-title font-weight-normal">Pending Handovers</h5>
+									<h1 class="display-3 card-text">12</h1>
+								</div>
+							</div>
+						</div>
+						<div class="col-auto">
+							<div class="card text-white bg-primary mb-3 text-right shadow border-0" style="max-width: 18rem; min-width: 14rem; max-height: 10rem">
+								<div class="card-body">
+									<h5 class="card-title font-weight-normal">My Items</h5>
+									<h1 class="display-3 card-text">18</h1>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
