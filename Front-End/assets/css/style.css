@@ -20,6 +20,42 @@ body{
 .login-box{
 	background-color: white;
 }
+.login-box.failed
+{
+	animation: failedLogin 200ms ease-in-out forwards;
+}
+
+@keyframes failedLogin
+{
+	0%
+	{
+		margin-left: 0px;
+	}
+	25%
+	{
+		margin-left: -5px;
+	}
+	50%
+	{
+		margin-left: -8px;
+	}
+	75%
+	{
+		margin-left: 0px;
+		margin-right: -5px;
+	}
+	100%
+	{
+		margin-right: 0px;
+	}
+}
+
+.login-box input[type=email].failed, .login-box input[type=password].failed
+{
+	border: solid 2px red;
+}
+
+>>>>>>> login-animation
 
 #page-row,.page-full, .left-navbar, #left-nav{
 	height: 100%;
