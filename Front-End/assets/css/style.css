@@ -25,6 +25,10 @@ body{
 	animation: failedLogin 200ms ease-in-out forwards;
 }
 
+#page-row,.page-full, .left-navbar, #left-nav{
+	height: 100%;
+}
+
 @keyframes failedLogin
 {
 	0%
@@ -57,9 +61,7 @@ body{
 
 >>>>>>> login-animation
 
-#page-row,.page-full, .left-navbar, #left-nav{
-	height: 100%;
-}
+
 
 .nav-link{
 }
