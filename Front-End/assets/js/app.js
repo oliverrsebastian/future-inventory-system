@@ -1,4 +1,8 @@
 var loginBox = $('.login-box');
+loginBox.addClass("transitioned");
+setTimeout(function(){
+	loginBox.removeClass("transitioned");
+},200);
 	var loginButton = $('.login-btn').click(function(e)
 		{
 			e.preventDefault();

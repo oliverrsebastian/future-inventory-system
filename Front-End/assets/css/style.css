@@ -19,7 +19,17 @@ body{
 
 .login-box{
 	background-color: white;
+	margin-top: 0;
+	opacity: 1;
+	transition: all 600ms ease-out;
 }
+
+.login-box.transitioned
+{
+	margin-top: 150px;
+	opacity: 0;
+}
+
 .login-box.failed
 {
 	animation: failedLogin 200ms ease-in-out forwards;
