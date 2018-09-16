@@ -13,11 +13,20 @@ body{
 	margin: 0 auto;
 }
 
-.login-box{ 
-	height: 80%;
+.login-container{ 
+	height: 85%;
 }
 
+.login-box{
+	background-color: white;
+}
 
+#page-row,.page-full, .left-navbar, #left-nav{
+	height: 100%;
+}
+
+.nav-link{
+}
 
 
 
