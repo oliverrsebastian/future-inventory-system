@@ -1,4 +1,6 @@
-$({property: 0}).animate({property: 100}, {
+$(document).on("click",".nav-link", function () {
+		var clickedBtnID = $(this).attr('id'); // or var clickedBtnID = this.id
+    $({property: 0}).animate({property: 100}, {
         duration: 1000,
         step: function() {
           var _percent = Math.round(this.property);
@@ -6,12 +8,8 @@ $({property: 0}).animate({property: 100}, {
         },
         complete: function() {
             $("#progress").addClass("done");
-            $("#page-row").toggleClass("hide");
+            $("html").load(clickedBtnID+".html");
         }
       });
-
-$(document).on("click",".nav-link", function () {
-		var clickedBtnID = $(this).attr('id'); // or var clickedBtnID = this.id
-		window.location.replace(clickedBtnID+".html");
 });
 
