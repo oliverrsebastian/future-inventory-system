@@ -9,9 +9,10 @@ Request Body :
 }
 Response :
 {
+	errorMsg : "";
 	"success" : true
 }
-
+	
 -------------------------------------------
 
 API Name : getEmployeeById
@@ -21,15 +22,13 @@ Request Method : GET
 
 Response :
 {
+	id: 1
 	name: "Karnando",
 	superiorId : 2,
 	dob : "17 July 1998"
 	email : "karnando@gmail.com",
 	position : "development",
-	division : "IT Division",
-	request : minimal 0 value angka : 1,
-	approval : minimal 0 value angka : 2,
-	handover : minimal 0 value angka : 5
+	division : "IT Division"
 }
 
 -------------------------------------------
@@ -39,18 +38,25 @@ API Description : Get employee list
 API Path : /api/employee
 Request Method : GET
 
+Request : 
+{
+	PageNumber  : 2,
+	PageSize : 10,
+	SortBy : employeeName,
+	SortType : ASC/DESC,
+		
+}
+
 Response :
 	list : 
 		{
+			id :  1,
 			name: "Karnando",
 			superiorId : 2,
 			dob : "17 July 1998",
 			email : "karnando@gmail.com",
 			position : "development",
-			division : "IT Division",
-			request : minimal 0 value angka : 1,
-			approval : minimal 0 value angka : 2,
-			handover : minimal 0 value angka : 5
+			division : "IT Division"
 		},
 		{
 			name: "Oliver",
@@ -58,66 +64,84 @@ Response :
 			dob : "17 August 1998",
 			email : "oliver@gmail.com",
 			position : "development",
-			division : "IT Division",
-			request : minimal 0 value angka : 3,
-			approval : minimal 0 value angka : 1,
-			handover : minimal 0 value angka : 2
+			division : "IT Division"
 		}
 
 -------------------------------------------
 
-API Name : entryEmployee
-API Description : add new employee
-API Path : /api/employee/insert
+API Name : getSuperiorList
+API Description : Get employee list
+API Path : /api/employee
+Request Method : GET
+
+Request : 
+{
+	PageNumber  : 2,
+	PageSize : 10,
+	SortBy : employeeName,
+	SortType : ASC/DESC,
+	
+		
+}
+
+Response :
+	list : 
+		{
+			id :  1,
+			name: "Karnando",
+			superiorId : 2,
+			dob : "17 July 1998",
+			email : "karnando@gmail.com",
+			position : "development",
+			division : "IT Division"
+		},
+		{
+			name: "Oliver",
+			superiorId : 1,
+			dob : "17 August 1998",
+			email : "oliver@gmail.com",
+			position : "development",
+			division : "IT Division"
+		}
+
+-------------------------------------------
+
+API Name : saveEmployee
+API Description : save employee
+API Path : /api/employee/save
 Request Method : POST
 Request Body :
 {
+	id : kosong -> insert / ada -> update
 	name: "Karnando",
 	superiorId : 3,
 	dob : "17 July 1998"
 	email : "karnando@gmail.com",
 	position : "development",
-	division : "IT Division",
-	request : minimal 0 value angka : 1,
-	approval : minimal 0 value angka : 2,
-	handover : minimal 0 value angka : 5
+	division : "IT Division"
 }
 Response :
 {
+	errorMsg : "";
 	success : "true"
 }
 
 -------------------------------------------
 
-API Name : editEmployeeById
-API Description : edit employee By Id
-API Path : /api/employee/{id}
-Request Method : PUT
-Request Body :
-{
-	name: "Karnando",
-	superiorId : 3,
-	dob : "17 July 1997"
-	email : "karnando@gmail.com",
-	position : "development",
-	division : "IT Division",
-	request : minimal 0 value angka : 1,
-	approval : minimal 0 value angka : 2,
-	handover : minimal 0 value angka : 5
-}
-Response :
-{
-	success : "true"
-}
-
--------------------------------------------
-
-API Name : deleteEmployeeById
-API Description : edit employee By Id
-API Path : /api/employee/{id}
+API Name : deleteEmployees
+API Description : delete employees
+API Path : /api/employees
 Request Method : DELETE
+
+Request : 
+{
+	ids:[
+	1,2,3
+	]
+}
 Response :
 {
+	errorMsg : "";
 	success : "true"
 }
 
@@ -127,6 +151,16 @@ API Name : getItemList
 API Description : get Item List
 API Path : /api/item
 Request Method : GET
+
+
+Request : 
+{
+	PageNumber  : 2,
+	PageSize : 10,
+	SortBy : itemSKU,
+	SortType : ASC/DESC	
+}
+
 Response :
 {
 	list : 	
@@ -159,51 +193,36 @@ Response :
 
 -------------------------------------------
 
-API Name : entryItem
-API Description : input Item to databse
-API Path : /api/item/insert
+API Name : saveItem
+API Description : save Item to databse
+API Path : /api/item
 Request Method : POST
 Request Body :
 {
+	id: kalau kosong artinya insert, kalau ada artinya edit
 	sku : "BLK-2001523-15643",			
-	name : "Macbook Pro"
-	qty : 2
-	price : 33000000 
-	location : Thamrin Office
+	name : "Macbook Pro",
+	price : 33000000,
+	qty : 2,
+	location : "Thamrin Office"
 }
 Response :
 {
+	errorMsg : "";
 	"success" : true
 }
 
 -------------------------------------------
 
-API Name : editItemById
-API Description : edit item By Id
-API Path : /api/item/{id}
-Request Method : PUT
-Request Body :
-{
-	sku : "BLK-2001523-15643",			
-	name : "Macbook Pro Air",
-	qty : 1,
-	price : 33000000, 
-	location : "Thamrin Office"
-}
-Response :
-{
-	success : "true"
-}
-
--------------------------------------------
-
 API Name : deleteItemById
-API Description : edit item By Id
+API Description : delete item (sama kyk employee)
 API Path : /api/item/{id}
 Request Method : DELETE
 Response :
 {
-	success : "true"
+	ids : [1,2,3],
+	success : "true",
+	errorMsg : "" -> kalau ada yg gagal brarti isinya "failed id : 2" contoh jika yg fail itu id ke 2
 }
 
 -------------------------------------------
@@ -223,14 +242,12 @@ Request Body :
 		{
 			id : 3,
 			qty : 1
-		},
-	status : "pending",
-	createdDate : "5 July 2018",
-	updatedDate : "5 July 2018"
+		}
 }
 Response :
 {
-	success : "true"
+	success : "true",
+	errorMsg : "";
 }
 
 -------------------------------------------
@@ -239,6 +256,15 @@ API Name : requestList
 API Description : get list of request(s)
 API Path : /api/request
 Request Method : GET
+
+Request : 
+{
+	PageNumber  : 2,
+	PageSize : 10,
+	SortBy : updatedDate,
+	SortType : ASC/DESC	
+}
+
 Response :
 	list : 
 	{
@@ -248,11 +274,7 @@ Response :
 			{
 				id : 2,
 				qty : 5
-			},
-			{
-				id : 3,
-				qty : 1
-			},
+			}
 		status : "pending",
 		createdDate : "5 July 2018",
 		updatedDate : "5 July 2018",
@@ -265,11 +287,7 @@ Response :
 			{
 				id : 1,
 				qty : 2
-			},
-			{
-				id : 4,
-				qty : 3
-			},
+			}
 		status : "rejected",
 		createdDate : "7 July 2018",
 		updatedDate : "7 July 2018",
@@ -278,20 +296,25 @@ Response :
 
 -------------------------------------------
 
-API Name : AuthorizeRequestById
-API Description : authorize request from employee by id
-API Path : /api/request/{id}/authorize
+API Name : UpdateRequestStatusByIds
+API Description : update request status from employee by ids
+API Path : /api/request/
 Request Method : POST
 Request Body :
 {
-	id : 1,
-	employeeId : 2,
-	status : "rejected",
-	updatedDate : "8 July 2018",
-	notes : "barang tidak ada"
+	list: 	{	id : 1,
+			status : "rejected",
+			notes : "barang tidak ada"
+	        	},
+		{	id : 2,
+			status : "approved",
+			notes : "barang tidak ada"
+	        	},
+		
 }
 Response :
 {
+	errorMsg : "";
 	success : "true"
 }
 
@@ -305,12 +328,12 @@ Request Body :
 {
 	id : 1,
 	employeeId : 2,
-	status : "received",
-	updatedDate : "9 July 2018",
+	status : "handover",
 	notes : null
 }
 Response :
 {
+	errorMsg : "";
 	success : "true"
 }
 
