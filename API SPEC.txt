@@ -17,7 +17,7 @@ Response :
 
 API Name : getEmployeeById
 API Description : Get employee by Id
-API Path : /api/employee/{id}
+API Path : /api/employees/{id}
 Request Method : GET
 
 Response :
@@ -35,7 +35,7 @@ Response :
 
 API Name : getEmployeeList
 API Description : Get employee list
-API Path : /api/employee
+API Path : /api/employees
 Request Method : GET
 
 Request : 
@@ -70,8 +70,8 @@ Response :
 -------------------------------------------
 
 API Name : getSuperiorList
-API Description : Get employee list
-API Path : /api/employee
+API Description : Get superior list
+API Path : /api/employees
 Request Method : GET
 
 Request : 
@@ -108,7 +108,7 @@ Response :
 
 API Name : saveEmployee
 API Description : save employee
-API Path : /api/employee/save
+API Path : /api/employees/save
 Request Method : POST
 Request Body :
 {
@@ -117,6 +117,7 @@ Request Body :
 	superiorId : 3,
 	dob : "17 July 1998"
 	email : "karnando@gmail.com",
+	password : "abcde",
 	position : "development",
 	division : "IT Division"
 }
@@ -149,7 +150,7 @@ Response :
 
 API Name : getItemList
 API Description : get Item List
-API Path : /api/item
+API Path : /api/items
 Request Method : GET
 
 
@@ -195,7 +196,7 @@ Response :
 
 API Name : saveItem
 API Description : save Item to databse
-API Path : /api/item
+API Path : /api/items
 Request Method : POST
 Request Body :
 {
@@ -216,7 +217,7 @@ Response :
 
 API Name : deleteItemById
 API Description : delete item (sama kyk employee)
-API Path : /api/item/{id}
+API Path : /api/items/{id}
 Request Method : DELETE
 Response :
 {
@@ -229,7 +230,7 @@ Response :
 
 API Name : requestItem
 API Description : request Item
-API Path : /api/request/insert
+API Path : /api/requests/insert
 Request Method : POST
 Request Body :
 {
@@ -254,7 +255,7 @@ Response :
 
 API Name : requestList
 API Description : get list of request(s)
-API Path : /api/request
+API Path : /api/requests
 Request Method : GET
 
 Request : 
@@ -298,7 +299,7 @@ Response :
 
 API Name : UpdateRequestStatusByIds
 API Description : update request status from employee by ids
-API Path : /api/request/
+API Path : /api/requests
 Request Method : POST
 Request Body :
 {
@@ -322,7 +323,7 @@ Response :
 
 API Name : ConfirmHandoverById
 API Description : confirm handover from employee by id
-API Path : /api/request/{id}/confirm
+API Path : /api/requests/{id}/confirm
 Request Method : POST
 Request Body :
 {
@@ -338,87 +339,3 @@ Response :
 }
 
 -------------------------------------------
-
-CORET2
-----------------------
--dashboard
-	data GET: 
-	{
-		id: 2,
-		name: "Karnando",
-		dob : "17 July 1998"
-		email : "karnando@gmail.com",
-		position : "development",
-		division : "IT Division",
-		request : minimal 0 value angka : 1,
-		approval : minimal 0 value angka : 2,
-		handover : minimal 0 value angka : 5
-	}
-
--item list
-	-data GET: 
-	{
-	user : 	
-		{
-			id: 2,
-			name: "Karnando",
-			dob : "17 July 1998"
-			email : "karnando@gmail.com",
-			position : "development",
-			division : "IT Division",
-			request : minimal 0 value angka : 1,
-			approval : minimal 0 value angka : 2,
-			handover : minimal 0 value angka : 5
-		},
-	item :	
-		{
-			list : 	
-			{
-				id: 2,
-				sku : "BLK-2001523-15643",
-				name: "Macbook Pro"
-				qty : 5,
-				price : 33000000,
-				location : Thamrin Office
-			},
-			{
-				id: 3,
-				sku : "ALP-2001523-15643",
-				name: "Macbook Air"
-				qty : 3,
-				price : 24000000,
-				location : Thamrin Office
-			},
-			{
-				id: 4,
-				sku : "ERG-2001523-15643",
-				name: "Pocophone F1"
-				qty : 2,
-				price : 5000000,
-				location : Thamrin Office
-			},
-			}
-		}
-		
-	- data POST (borrow item) :
-		item :
-		{
-			id : 2
-		},
-		{
-			id : 3
-		}
-
-	
-- entry item
-	-data POST  : 
-	{
-		item :
-		{
-			sku : "BLK-2001523-15643",
-			name : "Macbook Pro"
-			qty : 2
-			price : 33000000 
-			location : Thamrin Office
-		}
-	}
