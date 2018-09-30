@@ -1,4 +1,4 @@
-$(document).on("click",".nav-link", function () {
+$(document).on("click",".menu-item", function () {
 		var clickedBtnID = $(this).attr('id'); // or var clickedBtnID = this.id
     $({property: 0}).animate({property: 100}, {
         duration: 1000,
@@ -8,7 +8,8 @@ $(document).on("click",".nav-link", function () {
         },
         complete: function() {
             $("#progress").addClass("done");
-            $("html").load(clickedBtnID+".html");
+            //alert(clickedBtnID);
+            window.location.replace(clickedBtnID+".html");
         }
       });
 });
