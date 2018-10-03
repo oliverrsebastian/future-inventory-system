@@ -24,9 +24,9 @@ $('.entryEditModal').on('show.bs.modal', function (event) {
     // modal.find('.modal-body input').val(recipient)
 
 
-    // NOT WORKING
     if (dataName.toUpperCase() == "EDIT ITEM") {
-        $("inputItemSku").attr("readonly", "readonly");
+        // NOT WORKING
+        $("#inputItemSku").prop("readonly", true);
     }
     // NOT WORKING
 })
