@@ -33,6 +33,10 @@ $('.actionModal').on('show.bs.modal', function (event) {
         $("#entryEditForm").css("display", "none");
         $("#requestTable").css("display", "inline");
     }
+    else{
+        $("#entryEditForm").css("display", "inline");
+        $("#requestTable").css("display", "none");
+    }
 
     if(dataName.toUpperCase() == "REJECT REQUEST"){
         $("#rejectReasonBox").css("display", "inline");
