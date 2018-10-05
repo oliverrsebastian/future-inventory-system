@@ -14,7 +14,7 @@ $(document).on("click",".menu-item", function () {
       });
 });
 
-$('.entryEditModal').on('show.bs.modal', function (event) {
+$('.actionModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var dataName = button.data('name') // Extract info from data-* attributes
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -27,6 +27,15 @@ $('.entryEditModal').on('show.bs.modal', function (event) {
     if (dataName.toUpperCase() == "EDIT ITEM") {
         // NOT WORKING
         $("#inputItemSku").prop("readonly", true);
+    }
+
+    if(dataName.toUpperCase() == "REQUEST ITEM"){
+        $("#entryEditForm").css("display", "none");
+        $("#requestTable").css("display", "inline");
+    }
+
+    if(dataName.toUpperCase() == "REJECT REQUEST"){
+        $("#rejectReasonBox").css("display", "inline");
     }
     // NOT WORKING
 })

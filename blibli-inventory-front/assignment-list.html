@@ -4,7 +4,8 @@
 	<title>Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		  integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
 
@@ -13,7 +14,7 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
 	<link rel="manifest" href="assets/images/favicon/site.webmanifest">
 	<link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-	<link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
+	<link rel="shortcut icon" href="assets/images/favicon/myFavicon.ico">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="msapplication-config" content="assets/images/favicon/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
@@ -41,7 +42,8 @@
 				<nav class="navbar navbar-light bg-light justify-content-end shadow-sm">
 					<ul class="nav pr-4">
 						<li class="nav-item dropdown">
-						    <a class="nav-link text-secondary" data-toggle="dropdown" id="#" role="button" aria-haspopup="true" aria-expanded="false">Hello, Admin <i class="fas fa-user-circle"></i></a>
+						    <a class="nav-link text-secondary" data-toggle="dropdown" id="#" role="button"
+							   aria-haspopup="true" aria-expanded="false">Hello, Admin <i class="fas fa-user-circle"></i></a>
 						    <div class="dropdown-menu dropdown-menu-right text-center">
 						      <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Change Password</a>
 						      <div class="dropdown-divider"></div>
@@ -57,13 +59,16 @@
 
 					<div class="row pt-1 pl-1 pr-5">
 						<div class="col-3 px-2">
-							<button type="button" class="btn btn-success btn-block">Approve Request</button>
+							<button type="button" class="btn btn-success btn-block" data-toggle="modal"
+									data-target="#assignmentActionModal" data-name="Approve Request">Approve Request</button>
 						</div>
 						<div class="col-3 px-2">
-							<button type="button" class="btn btn-danger btn-block">Reject Request</button>
+							<button type="button" class="btn btn-danger btn-block" data-toggle="modal"
+									data-target="#assignmentActionModal" data-name="Reject Request">Reject Request</button>
 						</div>
 						<div class="col-3 px-2">
-							<button type="button" class="btn btn-primary btn-block">Handover Items</button>
+							<button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+									data-target="#assignmentActionModal" data-name="Handover Item">Handover Items</button>
 						</div>
 					</div>
 
@@ -99,12 +104,84 @@
 					</div>
 
 				</div>
+				<div class="modal actionModal fade" id="assignmentActionModal" tabindex="-1" role="dialog"
+					 aria-labelledby="AcceptRequestLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="AcceptRequestLabel">Entry Item</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="container-fluid">
+									<div class="table-responsive">
+										<table class="table table-hover">
+											<thead>
+											<tr>
+												<th scope="col">Employee ID</th>
+												<th scope="col">Employee Name</th>
+												<th scope="col">Item SKU</th>
+												<th scope="col">Item Name</th>
+												<th scope="col">Qty</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td>E12345</td>
+												<td>Oliver Sebastian Kindy</td>
+												<td>SKU-123</td>
+												<td>Macbook Pro 15"</td>
+												<td>3</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<div id="rejectReasonBox" style="display:none">
+										<div class="form-group">
+											<label for="rejectReason">Reject Reason :</label>
+											<input class="form-control" id="rejectReason" type="text">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="modal fade" id="deleteItemModal" tabindex="-1" role="dialog"
+					 aria-labelledby="deleteItemLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="deleteItemLabel">Delete Item</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>Are you sure you want to delete 2 item(s) ?</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary px-4" data-dismiss="modal">No</button>
+								<button type="button" class="btn btn-primary px-3">Yes</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 
 
-	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous"></script>
 	<script src="assets/js/bootstrap.js"></script>
 	<script src="assets/js/loading.js"></script>
 </body>
