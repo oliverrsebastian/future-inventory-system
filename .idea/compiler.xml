@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="future-inventory-system" />
+        <module name="inventory-system" />
       </profile>
     </annotationProcessing>
   </component>

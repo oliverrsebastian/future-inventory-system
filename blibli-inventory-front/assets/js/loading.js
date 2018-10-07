@@ -28,6 +28,10 @@ $('.actionModal').on('show.bs.modal', function (event) {
         // NOT WORKING
         $("#inputItemSku").prop("readonly", true);
     }
+    else{
+        $("#inputItemSku").prop("readonly", false);
+
+    }
 
     if(dataName.toUpperCase() == "REQUEST ITEM"){
         $("#entryEditForm").css("display", "none");
@@ -41,5 +45,9 @@ $('.actionModal').on('show.bs.modal', function (event) {
     if(dataName.toUpperCase() == "REJECT REQUEST"){
         $("#rejectReasonBox").css("display", "inline");
     }
-    // NOT WORKING
+    else{
+        console.log("test");
+        $("#rejectReasonBox").css("display", "none");
+
+    }
 })
