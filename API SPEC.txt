@@ -71,7 +71,7 @@ Response :
 
 API Name : getSuperiorList
 API Description : Get superior list
-API Path : /api/employees
+API Path : /api/superior
 Request Method : GET
 
 Request : 

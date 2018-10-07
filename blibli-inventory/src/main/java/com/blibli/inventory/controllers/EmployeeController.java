@@ -19,39 +19,34 @@ public class EmployeeController {
     EmployeeService employeeService = new EmployeeService();
     Pageable pageable;
 
-    @RequestMapping(value = "/api/employees", consumes = "application/json", method = RequestMethod.GET)
-    public ModelAndView listOfEmployee(ModelAndView model) throws IOException{
+    @RequestMapping(value = "/api/employees", produces = "application/json",
+            method = RequestMethod.GET)
+    public List<Employee> listOfEmployee() throws IOException{
         List<Employee> listOfEmployee = employeeService.getEmployeeList(pageable);
-        model.addObject("listOfEmployee", listOfEmployee);
-        model.setViewName("EmployeeList");
-
-        return model;
+        return listOfEmployee;
     }
 
-    @RequestMapping(value = "/api/superiors", consumes = "application/json", method = RequestMethod.GET)
-    public ModelAndView listOfSuperior(ModelAndView model) throws IOException{
+    @RequestMapping(value = "/api/superiors", produces = "application/json", method = RequestMethod.GET)
+    public List<Employee> listOfSuperior() throws IOException{
         List<Employee> listOfSuperior = employeeService.getSuperiorList(pageable);
-        model.addObject("listOfSuperior", listOfSuperior);
-        model.setViewName("SuperiorList");
-
-        return model;
+        return listOfSuperior;
     }
 
-    public ModelAndView EmployeeData(@RequestParam String id) throws IOException{
+    @RequestMapping(value = "api/employee/{id}", consumes = "application/json", produces = "application/json",
+    method = RequestMethod.GET)
+    public Employee EmployeeData(@RequestParam String id) throws IOException{
         Employee employee = employeeService.getEmployee(id);
-        ModelAndView model = new ModelAndView("EmployeeData");
-        model.addObject("Employee", employee);
-        return model;
+        return employee;
     }
 
-    public ModelAndView newEmployee(ModelAndView model){
-        Employee employee = new Employee();
-        model.addObject("Employee", employee);
-        model.setViewName("EmployeeForm");
-        return model;
-    }
+//    public Employee newEmployee(){
+//        Employee employee = new Employee();
+//        return employee;
+//    }
 
-    public ModelAndView saveEmployee(DefaultMultipartHttpServletRequest request){
+    @RequestMapping(value = "api/employee", consumes = "application/json", produces = "application/json",
+    method = RequestMethod.POST)
+    public String saveEmployee(DefaultMultipartHttpServletRequest request){
         Employee employee =  new Employee();
         employee.setId(request.getParameter("id"));
         employee.setName(request.getParameter("name"));
@@ -60,13 +55,17 @@ public class EmployeeController {
         employee.setPosition(request.getParameter("position"));
         employee.setDivisision(request.getParameter("division"));
         employee.setSuperiorId(request.getParameter("superiorId"));
-        employeeService.saveEmployee(employee);
-        return new ModelAndView("redirect:/api/employees");
+        String error = employeeService.saveEmployee(employee);
+        if(error.length() > 0)
+            return "failed";
+        return "success";
+
     }
 
-    public ModelAndView deleteEmployee(@RequestParam String id){
-        employeeService.deleteEmployee(id);
-        return new ModelAndView("redirect:/api/employees");
+    @RequestMapping(value = "api/employee", consumes = "application/json", produces = "application/json",
+    method = RequestMethod.DELETE)
+    public String deleteEmployee(@RequestParam String id){
+        return employeeService.deleteEmployee(id);
     }
 
 

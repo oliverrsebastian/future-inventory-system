@@ -1,0 +1,10 @@
+com\blibli\inventory\repositories\ItemRepository.class
+com\blibli\inventory\models\Item.class
+com\blibli\inventory\repositories\EmployeeRepository.class
+com\blibli\inventory\repositories\EmployeeRepository$3.class
+com\blibli\inventory\controllers\EmployeeController.class
+com\blibli\inventory\repositories\EmployeeRepository$1.class
+com\blibli\inventory\services\EmployeeService.class
+com\blibli\inventory\repositories\ItemRepository$1.class
+com\blibli\inventory\models\Employee.class
+com\blibli\inventory\repositories\EmployeeRepository$2.class

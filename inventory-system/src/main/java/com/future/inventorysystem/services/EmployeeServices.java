@@ -3,9 +3,11 @@ package com.future.inventorysystem.services;
 import com.future.inventorysystem.models.Employee;
 import com.future.inventorysystem.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class EmployeeServices {
 
     @Autowired
