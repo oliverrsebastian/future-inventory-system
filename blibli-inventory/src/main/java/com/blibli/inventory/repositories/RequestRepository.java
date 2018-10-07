@@ -19,8 +19,8 @@ public class RequestRepository{
             jdbc = new JdbcTemplate(dataSource);
         }
 
-        public Request getRequest(String id){
-            String sql = "SELECT FROM requests WHERE id = " + id;
+        public Request getRequest(String id, String employeeId){
+            String sql = "SELECT FROM requests WHERE id = " + id + " AND employeeId = " + employeeId;
             return jdbc.query(sql, new ResultSetExtractor<Request>() {
                 @Override
                 public Request extractData(ResultSet resultSet) throws SQLException, DataAccessException {
@@ -39,8 +39,8 @@ public class RequestRepository{
             });
         }
 
-        public List<Request> getRequestList(final Pageable pageable){
-            String sql = "SELECT FROM requests";
+        public List<Request> getAllRequestList(String sortedBy, String sortedType, final Pageable pageable){
+            String sql = "SELECT FROM requests ORDER BY" + sortedBy + sortedType;
             return jdbc.query(sql, new RowMapper<Request>() {
                 @Override
                 public Request mapRow(ResultSet resultSet, int i) throws SQLException {
@@ -58,6 +58,27 @@ public class RequestRepository{
                 }
             });
         }
+
+    public List<Request> getEmployeeRequestList(String employeeId, String sortedBy, String sortedType,
+                                                final Pageable pageable){
+        String sql = "SELECT FROM requests WHERE employeeId = " + employeeId + " ORDER BY " + sortedBy + sortedType;
+        return jdbc.query(sql, new RowMapper<Request>() {
+            @Override
+            public Request mapRow(ResultSet resultSet, int i) throws SQLException {
+                if(i < pageable.getNumberOfPages()){
+                    Request request = new Request();
+                    request.setId(resultSet.getString("id"));
+                    request.setEmployeeId(resultSet.getString("employeeId"));
+                    request.setItemId(resultSet.getString("itemId"));
+                    request.setQty(Integer.parseInt(resultSet.getString("qty")));
+                    request.setStatus(resultSet.getString("status"));
+                    request.setNotes(resultSet.getString("notes"));
+                    return request;
+                }
+                return null;
+            }
+        });
+    }
 
         public String saveRequest(Request request){
             String sql = "";

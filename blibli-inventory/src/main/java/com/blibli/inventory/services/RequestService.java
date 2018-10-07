@@ -14,12 +14,16 @@ public class RequestService {
     @Autowired
     RequestRepository repository;
 
-    public Request getRequest(String id) {
-        return repository.getRequest(id);
+    public Request getRequest(String id, String employeeId) {
+        return repository.getRequest(id, employeeId);
     }
 
-    public List<Request> getRequestList(Pageable pageable){
-        return repository.getRequestList(pageable);
+    public List<Request> getAllRequestList(String orderBy, String orderType, Pageable pageable){
+        return repository.getAllRequestList(orderBy, orderType, pageable);
+    }
+
+    public List<Request> getEmployeeRequestList(String employeeId, String orderBy, String orderType, Pageable pageable){
+        return repository.getEmployeeRequestList(employeeId, orderBy, orderType, pageable);
     }
 
     public String saveRequest(Request request){
